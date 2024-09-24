@@ -42,12 +42,12 @@ resource "aws_route_table" "rt" {
     }
   
 }
-resource "aws_route_table_association" "rt-association" {
+resource "aws_route_table_association" "rt-association-01" {
     route_table_id = aws_route_table.rt.id
     subnet_id = aws_subnet.public_subnet-01.id
   
 }
-resource "aws_route_table_association" "rt-association" {
+resource "aws_route_table_association" "rt-association-02" {
   route_table_id = aws_route_table.rt.id
   subnet_id = aws_subnet.public_subnet-02.id
 }
