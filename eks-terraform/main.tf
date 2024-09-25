@@ -5,7 +5,7 @@ provider "aws" {
 #Create IAM Role for EKS Cluster
 resource "aws_iam_role" "master" {
   name = "pavan-eks-master"
-  assume_role_policy = jsondecode({
+  assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
       {
@@ -36,7 +36,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
 #Create IAM Role for Worker Node
 resource "aws_iam_role" "worker" {
   name = "pavan-eks-worker"
-  assume_role_policy = jsondecode({
+  assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
       {
@@ -53,7 +53,7 @@ resource "aws_iam_role" "worker" {
 #Create IAM Policy for Autoscaler
 resource "aws_iam_policy" "autoscaler" {
     name = "pavan-eks-autoscaler-policy"
-    policy = jsondecode({
+    policy = jsonencode({
         "Version" : "2012-10-17",
         "Statement" : [
           {
